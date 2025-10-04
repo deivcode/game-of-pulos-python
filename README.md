@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # 🎮 Game Of Pulos
 
 ![Gameplay do Game Of Pulos](gif-jogo-python.gif)
@@ -72,3 +73,7 @@ Esta seção documenta o cumprimento dos requisitos do projeto.
 # game-of-pulos-python
 Meu primeiro jogo em Python! Um plataformer 2D simples criado com Pygame Zero.
 >>>>>>> 965698f88684fbaf4bd652e16614fd5b7d9d541c
+=======
+# game-of-pulos-python
+Meu primeiro jogo em Python! Um plataformer 2D simples criado com Pygame Zero.
+>>>>>>> 3515d8762bcd7df52a39e5728fe09a31133cee13
