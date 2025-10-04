@@ -1,41 +1,69 @@
-# Documentação dos Arquivos CSV do Jogo
+# 🎮 Game Of Pulos
 
-Este documento explica o propósito de cada arquivo `.csv` encontrado na pasta raiz do projeto, que são utilizados para construir os diferentes elementos do mapa do jogo.
+![Gameplay do Game Of Pulos](gif-jogo-python.gif)
 
-## Como Funcionam os Arquivos CSV
+"Game Of Pulos" é um jogo de plataforma 2D clássico, construído com Pygame Zero. O jogador controla um personagem que deve navegar por uma fase pulando em plataformas, evitando inimigos e coletando recompensas para alcançar o objetivo.
 
-Cada arquivo `.csv` representa uma "camada" do nosso mapa. Os números dentro desses arquivos correspondem a IDs de tiles (pequenas imagens) que são carregados pelo jogo. O valor `-1` geralmente significa que não há nenhum tile naquela posição, deixando-a vazia.
+Este projeto representa o primeiro jogo em Python do autor, servindo como um exercício prático de aprendizado e desenvolvimento.
 
-Esses arquivos são lidos pela função `build()` no `platformer.py`, que os transforma em objetos `Actor` no jogo, posicionando-os corretamente na tela.
+## ✨ Funcionalidades
 
-## Arquivos CSV e Seus Propósitos
+-   🏃 **Movimentação do Jogador:** Controles clássicos de plataforma para andar e pular.
+-   👾 **Inimigos:** Dois tipos de inimigos que reiniciam a fase ao serem tocados.
+-   💎 **Itens Colecionáveis:** Diamantes e moedas com contadores na tela.
+-   ↕️ **Objetos Interativos:** Plataformas móveis e de pulo.
+-   🔄 **Estados de Jogo:** Ciclo completo com Menu, Gameplay, Game Over e Tela de Vitória.
+-   🔊 **Controle de Som:** Botão para ligar/desligar música e efeitos sonoros.
+-   🔁 **Reinício Automático:** O jogo reinicia a fase após o Game Over e volta ao menu após a vitória.
 
-### `plataformer_arvore .csv`
-Este arquivo define a estrutura principal das árvores no cenário. Ele contém os IDs dos tiles que formam os troncos e as partes maiores das árvores.
+## 🚀 Como Executar o Jogo
 
-### `plataformer_final.csv`
-Este CSV marca a posição do objetivo final do jogo. Quando o jogador alcança os tiles definidos neste arquivo, ele completa o nível.
+### Pré-requisitos
 
-### `plataformer_galhos.csv`
-Este arquivo define a posição dos galhos das árvores. Recentemente, a lógica do jogo foi atualizada para que esses galhos sejam sólidos, permitindo que o jogador suba neles.
+-   Python
+-   Pygame Zero
 
-### `plataformer_ground.csv`
-Contém os tiles que formam o chão principal do jogo, onde o jogador começa e se move na maior parte do tempo.
+Você pode instalar o Pygame Zero usando o pip:
+```bash
+pip install pgzero
+```
 
-### `plataformer_jumps.csv`
-Este CSV especifica a localização de tiles especiais que dão ao jogador um "super pulo" quando ele colide com eles.
+### Execução
 
-### `plataformer_mushroms.csv`
-Define a posição dos cogumelos no mapa. Eles podem ser apenas decorativos ou ter alguma interação específica no jogo.
+Para rodar o jogo, execute o seguinte comando a partir do diretório raiz do projeto:
 
-### `plataformer_Plano-de-Fundo.csv`
-Este arquivo é usado para definir elementos de fundo que não interagem com o jogador, como montanhas distantes ou nuvens, criando profundidade no cenário.
+```bash
+pgzrun game.py
+```
 
-### `plataformer_plataforma-lado.csv`
-Contém os tiles que formam as plataformas que se movem horizontalmente no jogo, adicionando um desafio extra ao jogador.
+## 🕹️ Controles
 
-### `plataformer_Plataformas.csv`
-Define a localização das plataformas fixas no jogo, que o jogador usa para pular e alcançar diferentes áreas.
+-   **Seta Esquerda:** Mover para a esquerda
+-   **Seta Direita:** Mover para a direita
+-   **Seta Cima:** Pular
 
-### `plataformer_recompensas.csv`
-Este CSV indica onde as recompensas (como moedas ou joias) estão localizadas no mapa, para o jogador coletar.
+## 📁 Estrutura do Projeto
+
+-   `game.py`: Orquestrador principal do jogo e dos estados.
+-   `menu.py`: Classes para o menu principal e seus botões.
+-   `characters.py`: Lógica do jogador e dos inimigos.
+-   `platformer.py`: Utilitário para carregar os mapas (`.csv`).
+-   `*.csv`: Arquivos de dados que definem o layout do mapa. (Nota: O design do mapa foi originalmente prototipado no editor Tiled e depois adaptado para o formato CSV.)
+-   `images/`, `music/`, `sounds/`: Pastas com os assets do jogo.
+
+---
+
+## ✅ Checklist de Requisitos
+
+Esta seção documenta o cumprimento dos requisitos do projeto.
+
+-   [x] **Bibliotecas Permitidas:** O projeto utiliza apenas `PgZero`, `math` e `random`.
+-   [x] **Gênero do Jogo:** O jogo é um **Platformer**.
+-   [x] **Menu Principal:** Possui um menu com botões para "Iniciar Jogo", "Ligar/Desligar Som" e "Sair".
+-   [x] **Áudio:** O jogo implementa música de fundo e efeitos sonoros.
+-   [x] **Inimigos:** Existem múltiplos tipos de inimigos perigosos.
+-   [x] **Movimento de Inimigos:** Todos os inimigos possuem uma rotina de movimento.
+-   [x] **Uso de Classes:** O código é estruturado em classes.
+-   [x] **Animação de Sprites:** O herói e os inimigos usam animações de sprite.
+-   [x] **Convenção de Nomes e PEP8:** O código segue as convenções do PEP 8.
+-   [x] **Lógica do Jogo e Bugs:** O jogo possui uma mecânica lógica completa e funcional.

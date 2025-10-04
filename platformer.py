@@ -1,4 +1,3 @@
-import csv
 from pgzero.builtins import Actor
 
 def build(csv_file, tile_size):
@@ -9,8 +8,8 @@ def build(csv_file, tile_size):
     """
     objects = []
     with open(csv_file, 'r') as f:
-        reader = csv.reader(f)
-        for y, row in enumerate(reader):
+        for y, line in enumerate(f):
+            row = line.strip().split(',')
             for x, tile_id in enumerate(row):
                 if tile_id != '-1':
                     image_name = f'tile_{int(tile_id):04d}'

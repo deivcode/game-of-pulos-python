@@ -16,9 +16,10 @@ class Player(Character):
     """
     def __init__(self, jump_sound, **kwargs):
         super().__init__('p_right', **kwargs)
+        self.scale = 0.16 # Redimensiona o personagem para 16% do tamanho original
         self.velocity_x = 3
-        self.gravity = 0.5
-        self.jump_velocity = -9
+        self.gravity = 0.3
+        self.jump_velocity = -6.48 # Este valor já foi ajustado
         self.double_jump_velocity = -15
         self.left_images = ['p_left', 'p_walk_left']
         self.right_images = ['p_right', 'p_walk_right']
@@ -27,7 +28,7 @@ class Player(Character):
         self.animation_speed = 10
         self.jump_sound = jump_sound
 
-    def update(self, keyboard, width, ground, platforms, branches, jumps):
+    def update(self, keyboard, width, ground, platforms, branches, jumps, sound_enabled):
         # Gravidade
         self.velocity_y += self.gravity
 
@@ -97,7 +98,7 @@ class Player(Character):
         if is_moving:
             self.animation_speed = 6
         else:
-            self.animation_speed = 10
+            self.animation_speed = 15
 
         self.animation_counter += 1
         if self.animation_counter >= self.animation_speed:
@@ -109,15 +110,17 @@ class Player(Character):
                 self.current_image_index = (self.current_image_index + 1) % len(self.right_images)
                 self.image = self.right_images[self.current_image_index]
 
-    def on_key_down(self, key, keys):
+    def on_key_down(self, key, keys, sound_enabled):
         if key == keys.UP and self.on_ground:
             self.velocity_y = self.jump_velocity
             self.on_ground = False
-            self.jump_sound.play()
+            if sound_enabled:
+                self.jump_sound.play()
+
 
 class WalkingEnemy(Character):
     """
-    Um inimigo que anda para a esquerda e para a direita.
+    Mov do morcego atomico.
     """
     def __init__(self, image='tile_0024', **kwargs):
         super().__init__(image, **kwargs)
@@ -145,14 +148,14 @@ class WalkingEnemy(Character):
 
 class FishEnemy(Character):
     """
-    Um inimigo que pula para cima e para baixo como um peixe.
+    Mov dos peixes.
     """
     def __init__(self, image='tile_fish-up', **kwargs):
         super().__init__(image, **kwargs)
         self.initial_y = 0
         self.move_direction_y = -1
         self.move_range_y = 219
-        self.move_speed_y = 5
+        self.move_speed_y = 3.2
         self.up_images = ['tile_fish-up', 'tile_fish-up-closed']
         self.down_images = ['tile_down-open', 'tile_down-close']
         self.current_image_index = 0
