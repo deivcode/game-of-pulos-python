@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 # 🎮 Game Of Pulos
 
 ![Gameplay do Game Of Pulos](gif-jogo-python.gif)
@@ -70,7 +67,3 @@ Esta seção documenta o cumprimento dos requisitos do projeto.
 -   [x] **Animação de Sprites:** O herói e os inimigos usam animações de sprite.
 -   [x] **Convenção de Nomes e PEP8:** O código segue as convenções do PEP 8.
 -   [x] **Lógica do Jogo e Bugs:** O jogo possui uma mecânica lógica completa e funcional.
-=======
-# game-of-pulos-python
-Meu primeiro jogo em Python! Um plataformer 2D simples criado com Pygame Zero.
->>>>>>> e3a805de48412d34597f2aa7ff999357f42cd745
